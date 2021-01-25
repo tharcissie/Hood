@@ -3,12 +3,17 @@ from django.contrib.auth import login, authenticate
 from app.forms import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from app.models import *
 #from django.contrib.auth import login as auth_login
 
 # Create your views here.
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'base.html',{})
+    hood = Hood.objects.all()
+    context={
+        'hood':hood,
+    }
+    return render(request, 'base.html',context)
 
 
 def signup(request):
@@ -44,7 +49,18 @@ def profile(request, username):
     }
     return render(request, 'profile.html', context)
 
+def join_hood(request, id):
+    hood = get_object_or_404(Hood, id=id)
+    request.user.profile.hood = hood
+    request.user.profile.save()
+    return redirect('dashboard')
 
+
+def leave_hood(request, id):
+    hood = get_object_or_404(Hood, id=id)
+    request.user.profile.hood = None
+    request.user.profile.save()
+    return redirect('dashboard')
     
 
 
