@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+
+{% block content%}
+<li class="mb-4">
+    <a href="">
+        <i class="fas fa-paper-plane"></i>&nbsp;
+        &nbsp;{{user.profile.hood.name}}
+    </a>
+</li>
+
+<h6 class="card-text">
+    <span><strong>{{members.count}}</strong> Member{{members.count|pluralize}}</span>
+    | <strong>{{ business.count }}</strong> Businesses | <strong>
+    {{ hood.hood_post.count }}</strong> Post{{ hood.hood_post.count|pluralize }}
+</h6>
+<li class="mb-4">
+    <a href="{% url 'business' hood.id %}">
+      <i class="fas fa-door-open"></i>&nbsp;
+        &nbsp; Create Business
+    </a>
+</li>
+<li class="mb-4">
+    <a href="{% url 'post' hood.id%}">
+      <i class="fas fa-door-open"></i>&nbsp;
+        &nbsp; Create Post
+    </a>
+</li>
+
+{% endblock %}

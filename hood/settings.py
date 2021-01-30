@@ -68,7 +68,7 @@ WSGI_APPLICATION = 'hood.wsgi.application'
 DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.postgresql',
-           'NAME': 'hood',
+           'NAME': 'myhood',
            'USER': 'tharcissie',
            'PASSWORD': 'ntakarakorwa123',
        }

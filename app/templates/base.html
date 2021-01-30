@@ -1,138 +1,377 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+{% load static %}
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>HoodApp</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="all,follow">
-  <!-- Bootstrap CSS-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome CSS-->
-  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-  <!-- Fontastic Custom icon font-->
-  <link rel="stylesheet" href="css/fontastic.css">
-  <!-- Google fonts - Roboto -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-  <!-- jQuery Circle-->
-  <link rel="stylesheet" href="css/grasp_mobile_progress_circle-1.0.0.min.css">
-  <!-- Custom Scrollbar-->
-  <link rel="stylesheet" href="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
-  <!-- theme stylesheet-->
-  <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
-  <!-- Custom stylesheet - for your changes-->
-  <link rel="stylesheet" href="css/custom.css">
-  <!-- Favicon-->
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <!-- Tweaks for older IEs-->
-  <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144351462-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-144351462-1');
+
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+
+    <title>Hood</title>
 </head>
+<style>
+  @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+.form-text, .asteriskField{
+    display:none;
+}
+.nav-img{
+    height: 30px;
+    width: 30px;
+}
+.col-form-label {
+    font-weight: bold;
+}
+.editprofile{
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+.newhood{
+    padding-bottom: 20px;
+    padding-top: 10px;
+    margin-top:-4%;
+}
+.hoode{
+    padding-bottom: 20px;
+    padding-top: 10px;
+    margin-top: -1%;
+}
+.prof{
+    padding:40px;
+    border-radius:6px;
+}
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
 
+.navbar {
+    padding: 20px 10px;
+    background-color: #35495e;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+i,
+span {
+    display: inline-block;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+.tt{
+    color:#1a3e59;
+}
+.hpost{
+   background-color:#1a3e59;
+   color: white;
+}
+.poster{
+    padding: 20px;
+    border-radius: 6px;
+}
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    padding-right:10px;
+    background: #1a3e59;
+    color: #fff;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    min-width: 90px;
+    max-width: 90px;
+    text-align: center;
+}
+
+#sidebar.active .sidebar-header h3,
+#sidebar.active .CTAs {
+    display: none;
+}
+
+#sidebar.active .sidebar-header strong {
+    display: block;
+}
+
+#sidebar ul li a {
+    text-align: left;
+}
+
+#sidebar.active ul li a {
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+#sidebar.active ul li a i {
+    margin-right: 0;
+    display: block;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+#sidebar.active ul ul a {
+    padding: 10px !important;
+}
+
+#sidebar.active .dropdown-toggle::after {
+    top: auto;
+    bottom: 10px;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+
+}
+
+#sidebar .sidebar-header strong {
+    display: none;
+    font-size: 1.8em;
+}
+
+#sidebar ul.components {
+    padding: 0 0;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: teal;
+    background: #fff;
+}
+
+#sidebar ul li a i {
+    margin-right: 10px;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+#content {
+    width: 100%;
+    padding-left: 0px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        min-width: 80px;
+        max-width: 80px;
+        text-align: center;
+        margin-left: -80px !important;
+    }
+    .dropdown-toggle::after {
+        top: auto;
+        bottom: 10px;
+        right: 50%;
+        -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%);
+    }
+    #sidebar.active {
+        margin-left: 0 !important;
+    }
+    #sidebar .sidebar-header h3,
+    #sidebar .CTAs {
+        display: none;
+    }
+    #sidebar .sidebar-header strong {
+        display: block;
+    }
+    #sidebar ul li a {
+        padding: 20px 10px;
+    }
+    #sidebar ul li a span {
+        font-size: 0.85em;
+    }
+    #sidebar ul li a i {
+        margin-right: 0;
+        display: block;
+    }
+    #sidebar ul ul a {
+        padding: 10px !important;
+    }
+    #sidebar ul li a i {
+        font-size: 1.3em;
+    }
+    #sidebar {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+</style>
 <body>
-  <!-- Side Navbar -->
-  <nav class="side-navbar">
-    <div class="side-navbar-wrapper">
-      <!-- Sidebar Header    -->
-      <div class="sidenav-header d-flex align-items-center justify-content-center">
-        <!-- User Info-->
-        <div class="sidenav-header-inner text-center"><img src="img/avatar-7.jpg" alt="person"
-            class="img-fluid rounded-circle">
-          <h2 class="h5">Nathan Andrews</h2><span>Web Developer</span>
+    <div class="wrapper">
+      <nav id="sidebar" class="">
+        <div class="sidebar-header ">
+            <h3><a href="">HooD</a></h3>
+            <strong><i class="fas fa-home"></i></strong>
         </div>
-        <!-- Small Brand information, appears on minimized sidebar-->
-        <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong
-              class="text-primary">D</strong></a></div>
-      </div>
-      <!-- Sidebar Navigation Menus-->
-      <div class="main-menu">
-        <h5 class="sidenav-heading">Main</h5>
-        <ul id="side-main-menu" class="side-menu list-unstyled">
-          <li><a href="index.html"> <i class="icon-home"></i>Home </a></li>
-          <li><a href="forms.html"> <i class="icon-form"></i>Forms </a></li>
-          <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
-          <li><a href="tables.html"> <i class="icon-grid"></i>Tables </a></li>
-          <li><a href="{% url 'login' %}"> <i class="icon-interface-windows"></i>Login page </a></li>
+        {% if user.is_authenticated %}
+        <ul class="list-unstyled components mr-2 ml-2">
+            <li class="mb-4">
+                <a href="{% url 'dashboard' %}">
+                  <i class="fas fa-home"></i>
+                    &nbsp; Hoods
+                </a>
+    
+            </li>
+            <li class="mb-4">
+                <a href="{% url 'profile' user.username  %}">
+                    <i class="fas fa-user"></i>&nbsp;
+                    &nbsp; My Profile
+                </a>
+            </li>
+            {% if user.profile.hood %}
+            <li class="mb-4">
+                <a href="{% url 'hood' user.profile.hood.id %}">
+                  <i class="fas fa-door-open"></i>&nbsp;
+                    &nbsp; My Hood
+                </a>
+            </li>
+           
+            {%else%}
+            {%endif%}
+            <li class="mb-4">
+              <a href="{% url 'logout' %}">
+                <i class="fas fa-sign-out-alt"></i>&nbsp;
+                  &nbsp; Logout
+              </a>
+          </li>
         </ul>
-      </div>
+    
+        {% endif%}
+    </nav>
+        <div id="content">
+          <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btn-sm btn-info">
+                    <i class="fas fa-align-left"></i>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item active">
+                             <img class="rounded-circle nav-img"src="{{ user.profile.profile_picture.url }}" alt="">
+                            &nbsp; <span class="text-white">{{user.username|title}}</span>
+                        </li>
+                        {% else %}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+          {% block content %}
+
+          {% endblock %}
+           </div>
     </div>
-  </nav>
-  {% for hood in hood %}
-  <p>{{hood.name}}</p>
-  {% if request.user.profile.hood == hood %}
-  <a href="{% url 'leave-hood' hood.id %}" class="btn btn-outline-danger btn-sm">Leave Hood</a>
-  {% elif not request.user.profile.hood %}
-  <a href="{% url 'join-hood' hood.id %}" class="btn btn-primary btn-sm">Join Hood</a>
-  {% endif %}
-  {% endfor %}
 
-  {% block content %}
-  {% endblock %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+</script>
 
-
-  <div class="page">
-    <!-- navbar-->
-    <header class="header">
-      <nav class="navbar">
-        <div class="container-fluid">
-          <div class="navbar-holder d-flex align-items-center justify-content-between">
-            <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a
-                href="index.html" class="navbar-brand">
-                <div class="brand-text d-none d-md-inline-block"><strong class="text-primary">HoodApp</strong></div>
-              </a></div>
-            <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-              <!-- Log out-->
-              <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link logout"> <span
-                    class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <!-- Counts Section -->
-    <footer class="main-footer">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-6">
-            <p>Hood &copy; 2021</p>
-          </div>
-          <div class="col-sm-6 text-right">
-            <p>Design by Tharcissie Idufashe</a></p>
-            <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions and it helps me to run Bootstrapious. Thank you for understanding :)-->
-          </div>
-        </div>
-      </div>
-    </footer>
-  </div>
-  <!-- JavaScript files-->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
-  <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
-  <script src="vendor/chart.js/Chart.min.js"></script>
-  <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-  <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-  <script src="js/charts-home.js"></script>
-  <!-- Main File-->
-  <script src="js/front.js"></script>
 </body>
-
 </html>

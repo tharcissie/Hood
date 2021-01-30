@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content%}
+hhh
+{% for hood in hood %}
+<p>{{hood.name}}</p>
+{% if request.user.profile.hood == hood %}
+  <a href="{% url 'leave-hood' hood.id %}" class="btn btn-outline-danger btn-sm">Leave Hood</a>
+  {% elif not request.user.profile.hood %}
+  <a href="{% url 'join-hood' hood.id %}" class="btn btn-primary btn-sm">Join Hood</a>
+  {% endif %}
+
+{% endfor %}
+{% endblock %}

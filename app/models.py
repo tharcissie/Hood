@@ -22,7 +22,7 @@ class Hood(models.Model):
         self.delete()
 
     @classmethod
-    def find_hood(cls, neighborhood_id):
+    def find_hood(cls, hood_id):
         return cls.objects.filter(id=hood_id)
 
 
@@ -67,6 +67,7 @@ class Post(models.Model):
     hood = models.ForeignKey(Hood, on_delete=models.CASCADE, related_name='hood_post',null=True)
     post = models.TextField()
     date = models.DateTimeField(auto_now_add=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -77,6 +78,8 @@ class Post(models.Model):
     def delete_post(self):
         self.delete()
 
+    class Meta:
+        ordering = ["-pk"]
    
 
 
