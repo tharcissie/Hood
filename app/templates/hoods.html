@@ -6,7 +6,7 @@
   <div class="card-deck">
     {% for hood in hood %}
     <div class="card col-md-3">
-      <img class="card-img-top" src="{{hood.image.url}}" alt="Card image cap">
+      <img class="card-img-top" src="{{}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{hood.name}}</h5>
         <p class="card-text text-10"> <b>Location:</b> {{hood.location}}, <b>Police:</b> {{hood.police}}, <b>health:</b> {{hood.health}}</p>
