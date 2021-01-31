@@ -12,9 +12,9 @@
 
 <div class="container">
   <h3 class="text-center mb-4">Available Hoods</h3>
-  <div class="card-deck">
+  <div class="row justify-content-center">
     {% for hood in hood %}
-    <div class="card col-md-3" style="background-color: #DED9E8;">
+    <div class="card col-md-3 m-4" style="background-color: #DED9E8;">
       <img class="card-img-top" src="{{hood.image.url}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{hood.name}}</h5>
@@ -28,9 +28,10 @@
         <small class="text-muted"><a href="{% url 'join-hood' hood.id %}" class="btn btn-primary btn-sm">Join
             Hood</a></small>
         {% endif %}
-        {% endfor %}
+       
       </div>
     </div>
+    {% endfor %}
   </div>
 </div>
 {% endblock %}

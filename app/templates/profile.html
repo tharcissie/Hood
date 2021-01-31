@@ -6,38 +6,36 @@
     <div class="content-section">
         <div class="media">
             <div class="container">
-                <div class="card">
+                <div class="card p-5" style="background-color: #FCEDF4;">
                     <div class="row justify-content-center">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-3">
-                        <img class="rounded-circle account-img" src="{{ user.profile.profile_picture.url }}"
-                            width="100%">
-                    </div>
-                    <div class="col-md-6 mt-3">
-                        <div class="media-body">
-                            <div class="account-heading"><span
-                                    class="mr-3 text-secondary username"> <b>Name:</b> {{ user.username }}</span>
-                                    <p>{{user.profile.hood.name}}</p>
-                                <a class="btn btn-sm text-light mr-3" data-toggle="modal"
-                                    data-target=".bd-example-modal-md "><strong>Edit Profile</strong></a>
-
+                        <div class="col-md-1"></div>
+                        <div class="col-md-3">
+                            <img class="rounded-circle account-img" src="{{ user.profile.profile_picture.url }}"
+                                width="100%">
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <div class="media-body">
+                                <div class="account-heading">
+                                    <p><b>Name:</b> {{ user.username }}</p>
+                                    <p><b>My Hood:</b> {{user.profile.hood.name}}</p>
+                                    <p><b>Location:</b> {{user.profile.hood.location}}</p>
+                                    <a class="btn btn-sm text-light mr-3" data-toggle="modal" style="background-color: #A01A58;"
+                                        data-target=".bd-example-modal-md "><strong>Update Profile</strong></a>
+                                </div>
                             </div>
-
-                         
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
         </div>
         <div class="modal fade bd-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
             aria-hidden="true">
-            <div  class="modal-dialog modal-md ">
+            <div class="modal-dialog modal-md ">
                 <div class="modal-content">
                     <form action="" method="post" novalidate enctype="multipart/form-data" class="mr-4 mt-4 ml-4 mb-4">
                         {% csrf_token%}
                         {{ prof_form|crispy}}
-                        <button type="submit" class="btn text-light btn-sm"> Update Profile</button>
+                        <button type="submit" class="btn text-light btn-sm" style="background-color: #A01A58;"> Update Profile</button>
                         <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">Close
                         </button>
                     </form>
@@ -45,8 +43,6 @@
             </div>
         </div>
     </div>
-    
-
 </div>
 
 
