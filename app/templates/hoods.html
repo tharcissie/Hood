@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content%}
+
+<style>
+  .card-img-top {
+  width: 100%;
+  height: 8vw;
+  object-fit: cover;
+}
+</style>
+
 <div class="container">
   <h3 class="text-center mb-4">Available Hoods</h3>
   <div class="card-deck">
     {% for hood in hood %}
-    <div class="card col-md-3">
-      <img class="card-img-top" src="{{}}" alt="Card image cap">
+    <div class="card col-md-3" style="background-color: #DED9E8;">
+      <img class="card-img-top" src="{{hood.image.url}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{hood.name}}</h5>
         <p class="card-text text-10"> <b>Location:</b> {{hood.location}}, <b>Police:</b> {{hood.police}}, <b>health:</b> {{hood.health}}</p>
