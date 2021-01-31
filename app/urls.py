@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import dashboard,signup,profile,join_hood,leave_hood,hood,post,business
+from .views import dashboard,signup,profile,join_hood,leave_hood,hood,post,business,search_hood
 
 urlpatterns=[
     path('', dashboard, name='dashboard'),
@@ -9,5 +9,6 @@ urlpatterns=[
     path('leave_hood/<id>', leave_hood, name='leave-hood'),
     path('hood/<id>', hood, name='hood'),
     path('<id>/create_post', post, name='post'),
-    path('<id>/create_business', business, name='business')
+    path('<id>/create_business', business, name='business'),
+    path('search/', search_hood, name='search'),
 ]

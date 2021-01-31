@@ -103,21 +103,31 @@ def business(request, id):
     return render(request, 'business.html', {'form': form})
 
 
-def search_business(request):
-    if request.method == 'GET':
-        name = request.GET.get("title")
-        results = Business.objects.filter(name__icontains=name).all()
-        print(results)
-        message = f'name'
-        context = {
-            'results': results,
-            'message': message
-        }
-        return render(request, 'results.html', context)
+# def search_hood(request):
+#     if request.method == 'GET':
+#         name = request.GET.get("name")
+#         if name:
+#             results = Hood.objects.filter(name__icontains=name)
+#             message = f'name'
+#         context = {
+#             'results': results,
+#             'message': message
+#         }
+#         return render(request, 'hoods.html', context)
+#     else:
+#         message = "You haven't searched for any image category"
+#     return render(request, "hoods.html")
+
+def search_hood(request):
+    if 'business' in request.GET and request.GET["business"]:
+        search = request.GET.get("business")
+        business= Business.search_business(search)
+        message = f"{search}"
+        context = {"business":business, 'search':search}
+        return render(request, 'result.html',context)
     else:
-        message = "You haven't searched for any image category"
-    return render(request, "results.html")
-    
+        message = "You haven't searched for any term"
+        return render(request, 'result.html',{"message":message})
 
 
 

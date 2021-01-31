@@ -25,6 +25,13 @@ class Hood(models.Model):
     def find_hood(cls, hood_id):
         return cls.objects.filter(id=hood_id)
 
+    @classmethod
+    def search_hood(cls,search):
+    	hoods = cls.objects.filter(name__icontains=search)
+    	return hoods
+    
+    class Meta:
+        ordering = ["-pk"]
 
 
 class Profile(models.Model):

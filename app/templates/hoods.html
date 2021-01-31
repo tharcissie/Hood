@@ -1,14 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content%}
-hhh
-{% for hood in hood %}
-<p>{{hood.name}}</p>
-{% if request.user.profile.hood == hood %}
-  <a href="{% url 'leave-hood' hood.id %}" class="btn btn-outline-danger btn-sm">Leave Hood</a>
-  {% elif not request.user.profile.hood %}
-  <a href="{% url 'join-hood' hood.id %}" class="btn btn-primary btn-sm">Join Hood</a>
-  {% endif %}
-
-{% endfor %}
+<div class="container">
+  <h3 class="text-center mb-4">Available Hoods</h3>
+  <div class="card-deck">
+    {% for hood in hood %}
+    <div class="card col-md-3">
+      <img class="card-img-top" src="{{hood.image.url}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{hood.name}}</h5>
+        <p class="card-text text-10"> <b>Location:</b> {{hood.location}}, <b>Police:</b> {{hood.police}}, <b>health:</b> {{hood.health}}</p>
+      </div>
+      <div class="card-footer">
+        {% if request.user.profile.hood == hood %}
+        <small class="text-muted"><a href="{% url 'leave-hood' hood.id %}" class="btn btn-outline-danger btn-sm">Leave
+            Hood</a></small>
+        {% elif not request.user.profile.hood %}
+        <small class="text-muted"><a href="{% url 'join-hood' hood.id %}" class="btn btn-primary btn-sm">Join
+            Hood</a></small>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

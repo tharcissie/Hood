@@ -1,16 +1,30 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-{% block content%}
-
-
+  <title>SignUp</title>
+</head>
+<body style="background-image: url('https://images.unsplash.com/photo-1570815086038-21b7ad0c5f1d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8bmVpZ2hib3Job29kfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'); background-repeat: no-repeat; background-size: cover">
 
   <div class="container mb-5 mt-5">
 
 
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <div class="card bg-dark text-light mt-5 p-5">
-          <h2 class="text-center">Sign up to <span style="color: brown;">ProjectApp</span> </h2>
+        <div class="card text-light mt-5 p-5" style="background-color:#9081B1; ">
+          <h2 class="text-center">Sign up to <span style="color: brown;">HooD</span> </h2>
           <hr>
           <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -24,5 +38,14 @@
     </div>
   </div>
   </div>
-
-  {% endblock %}
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+crossorigin="anonymous"></script>
+</html>

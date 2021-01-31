@@ -75,7 +75,8 @@
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn" style="background-color: #5C4D7D; color: white;">
+                    <button type="button" id="sidebarCollapse" class="btn"
+                        style="background-color: #5C4D7D; color: white;">
                         <i class="fas fa-window-minimize"></i>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
@@ -83,9 +84,20 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
-
+                    
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        
                         <ul class="nav navbar-nav ml-auto">
+                            <form class="navbar-form mr-5" role="search" action="{% url 'search' %}">
+
+                                <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Search Business" name="business">
+                                  <div class="input-group-btn">
+                                    <button class="btn text-white" type="submit"><i class="fas fa-search"></i></button>
+                                  </div>
+                                </div>
+                          
+                              </form>
                             {% if user.is_authenticated %}
                             <li class="nav-item active">
                                 <img class="rounded-circle nav-img" src="{{ user.profile.profile_picture.url }}" alt="">
@@ -93,14 +105,15 @@
                             </li>
                             {% else %}
                             <li class="nav-item active">
-                                <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                                <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Log In</a>
                             </li>
 
                             <li class="nav-item active">
-                                <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                                <a class="nav-link" href="{% url 'signup' %}"><i class="fas fa-user-plus"></i>Sign Up</a>
                             </li>
                             {% endif %}
                         </ul>
+                
                     </div>
                 </div>
             </nav>
