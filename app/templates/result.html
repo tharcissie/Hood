@@ -21,30 +21,18 @@
     <div class="col md-3"></div>
 
   </div>
-<div class="row">
-  <!-- <div class="col md-1"></div> -->
 
-
-  {% for business in business%}
-  <div class="col-md-4">
-    <div class="card" style="height:500px;margin-bottom:10px;margin-top:50px;">
+  <div class="row justify-content-center">
+    {% for business in business %}
+    <div class="card col-md-3 m-4" style="background-color: #DED9E8;">
       <div class="card-body">
-        <!-- <a href="{{business.link}}"> -->
-          <p style="text-align:center;">{{business.name}}</p>
-          </a>
-
-        </div>
-      <div class="card-body">
-        <div class="card-text">
-         
-
-        </div>
+        <h5 class="card-title">{{business.name}}</h5><hr>
+        <p class="card-text text-10"><b>Location:</b> {{business.hood}}</p>
+        <p class="card-text text-10"><b>Email:</b> {{business.business_email}}</p>
       </div>
     </div>
+    {% endfor %}
   </div>
-
-
-  {%endfor%}
   <!-- <div class="col md-3"></div> -->
 
 </div>

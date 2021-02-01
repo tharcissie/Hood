@@ -5,16 +5,15 @@
 <div class="container mb-5 mt-5">
   <div class="row mb-5 justify-content-center">
     <div class="col-md-6 mb-5">
-      <div class="card bg-dark text-light mt-5 mb-5 p-5"">
-        <h2 class="text-center">Login to <span style="color: brown;">ProjectApp</span> </h2>
+      <div class="card mt-5 mb-5 p-5" style="background-color: #D5AFD4;">
+        <h2 class="text-center">Add Post </h2>
         <hr>
         <form method="post">
           {% csrf_token %}
           {% include 'form.html' %}
           <hr>
-          <button class="btn btn-danger" type="submit">Login</button>
+          <button class="btn btn-danger" type="submit" style="background-color:#5D1D44">Create</button>
         </form>
-        <p>No account? <a href="{% url 'signup' %}" class="text-danger">Signup</a> </p>
       </div>
     </div>
   </div>

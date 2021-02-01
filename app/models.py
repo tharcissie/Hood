@@ -74,7 +74,6 @@ class Post(models.Model):
     hood = models.ForeignKey(Hood, on_delete=models.CASCADE, related_name='hood_post',null=True)
     post = models.TextField()
     date = models.DateTimeField(auto_now_add=True, blank=True)
-    date = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return self.title
