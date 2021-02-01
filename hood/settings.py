@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'hood.wsgi.application'
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = os.environ.get('DEBUG', False)
 # development
 if config('MODE')=="dev":
    DATABASES = {
