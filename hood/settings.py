@@ -19,7 +19,7 @@ SECRET_KEY = config('SECRET_KEY')
 #SECRET_KEY = 'j!p_&z#f6ap_bzzb3iw(=i%tfb$voyylu!75cqcp%f_=v%hp%c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+DEBUG = True
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
