@@ -16,6 +16,14 @@
         | <strong>{{ business.count }}</strong> Businesses | <strong>
             {{ hood.hood_post.count }}</strong> Post{{ hood.hood_post.count|pluralize }}
     </h6>
+    <div class="row">
+        <div class="col-md-1">
+         <p><b>Police:</b> {{hood.police}}</p>
+        </div>
+        <di class="col-md-1">
+            <p><b>health:</b> {{hood.health}}</p>
+        </di>
+    </div>
     <a class="btn btn-sm" style="background-color:#EBC1DB;" href="{% url 'business' hood.id %}">Create Business</a>
     <a class="btn btn-sm" style="background-color:#D5AFD4;" href="{% url 'post' hood.id%}">Create Post</a>
 

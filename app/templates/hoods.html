@@ -18,7 +18,7 @@
       <img class="card-img-top" src="{{hood.image.url}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{hood.name}}</h5>
-        <p class="card-text text-10"> <b>Location:</b> {{hood.location}}, <b>Police:</b> {{hood.police}}, <b>health:</b> {{hood.health}}</p>
+        <p class="card-text text-10"> <b>Location:</b> {{hood.location}}</p>
       </div>
       <div class="card-footer">
         {% if request.user.profile.hood == hood %}
